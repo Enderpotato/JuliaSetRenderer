@@ -1,10 +1,19 @@
-class Complex
+#include <iostream>
+
+struct Complex
 {
-private:
 	float re, im;
 public:
 	Complex(float re, float im):
-		re(re), im(im) {}
+		re(re), im(im) {
+		//std::cout << "Complex constucted!" << std::endl;
+	}
 
-	Complex operator+(Complex other);
+	~Complex();
+
+	Complex operator+(const Complex &other) const;
+
+	Complex operator*(const Complex &other) const;
+
+	void print() const;
 };
