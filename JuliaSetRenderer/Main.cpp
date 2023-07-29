@@ -4,6 +4,13 @@
 
 int main()
 {
+	Complex* a = new Complex(1.f, 1.f);
+	Complex* b = new Complex(2.f, 2.f);
+
+
+	delete a;
+	delete b;
+
 	sf::RenderWindow window(sf::VideoMode(720, 320), "window");
 
 	sf::CircleShape circle;
@@ -25,9 +32,6 @@ int main()
 			if (event.type == sf::Event::Closed) window.close();
 		}
 	}
-
-
-	std::cout << "Hello world!" << std::endl;
 
 	return 0;
 }
