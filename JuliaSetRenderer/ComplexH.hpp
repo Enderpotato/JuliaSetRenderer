@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 struct Complex
 {
@@ -12,11 +11,9 @@ public:
 
 	~Complex();
 
-	Complex operator+(const Complex& other) const;
+	Complex operator+(const Complex &other) const;
 
-	Complex operator*(const Complex& other) const;
+	Complex operator*(const Complex &other) const;
 
 	void print() const;
 };
-
-std::vector<int> getJuliaSet(const int& width, const int& height, const Complex& c);
