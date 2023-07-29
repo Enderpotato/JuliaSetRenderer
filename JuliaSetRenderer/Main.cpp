@@ -1,17 +1,25 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Complex.hpp"
+#include "ComplexH.hpp"
+
+int windowWidth = 720;
+int windowHeight = 360;
+
 
 int main()
 {
-	Complex* a = new Complex(1.f, 1.f);
-	Complex* b = new Complex(2.f, 2.f);
+	int testX = 10;
+	int testY = 5;
+
+	Complex c(0, -1.f);
+
+	getJuliaSet(testX, testY, c);
 
 
-	delete a;
-	delete b;
+	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "window");
 
-	sf::RenderWindow window(sf::VideoMode(720, 320), "window");
+	sf::CircleShape circle;
+	circle.getFillColor();
 
 	while (window.isOpen())
 	{
