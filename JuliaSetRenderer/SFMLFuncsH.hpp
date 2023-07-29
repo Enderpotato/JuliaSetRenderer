@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 
-sf::Color Color(float& r, float& g, float& b);
+sf::Color newColor(float& r, float& g, float& b);
 
-sf::Color Color(float& r, float& g, float& b, float& a);
+sf::Color newColor(float& r, float& g, float& b, float& a);
+

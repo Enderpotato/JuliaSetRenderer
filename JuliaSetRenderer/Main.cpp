@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "ComplexH.hpp"
+#include "SFMLFuncsH.hpp"
 
 int windowWidth = 720;
 int windowHeight = 360;
@@ -19,10 +20,16 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "window");
 
 	sf::CircleShape circle;
-	circle.getFillColor();
+	circle.setFillColor(sf::Color(0, 255, 0));
+	circle.setRadius(30.f);
+	circle.setPosition(360, 180);
 
 	while (window.isOpen())
 	{
+		window.clear();
+		window.draw(circle);
+		window.display();
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
