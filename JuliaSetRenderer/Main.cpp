@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "ComplexH.hpp"
-#include "SFMLFuncsH.hpp"
 
 int windowWidth = 720;
 int windowHeight = 360;
