@@ -1,35 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include "SFMLFuncsH.hpp"
-#include <map>
-
-
-sf::Color newColor(float& r, float& g, float& b)
-{
-	return sf::Color(r * 255, g * 255, b * 255);
-}
-
-sf::Color newColor(float& r, float& g, float& b, float& a)
-{
-	return sf::Color(r * 255, g * 255, b * 255, a * 255);
-}
-
 
 void RenderJuliaSet(
-	std::map<std::string, int> params,
+	std::map<std::string, float> params,
 	const std::vector<int>& JuliaSet,
-	sf::Window& window
+	sf::RenderWindow& window
 )
 {
 
-	int testY = params["testY"];
-	int testX = params["testX"];
-	int lenX = params["lenX"];
-	int lenY = params["lenY"];
+	float testY = params["testY"];
+	float testX = params["testX"];
+	float lenX = params["lenX"];
+	float lenY = params["lenY"];
 	for (int i = 0; i < testY; i++)
 	{
 		for (int j = 0; j < testX; j++)
 		{
-			int iters = JuliaSet[i * testY + j];
+			int iters = JuliaSet[static_cast<int>(i * testY + j)];
 
 			//std::cout << iters << std::endl;
 			sf::RectangleShape pixel;
@@ -37,6 +24,31 @@ void RenderJuliaSet(
 			pixel.setSize(sf::Vector2f(lenX, lenY));
 			sf::Color pixelColor = (iters == 0) ? sf::Color::Red : sf::Color::Green;
 			pixel.setFillColor(pixelColor);
+			window.draw(pixel);
 		}
 	}
+}
+
+void testRender(int width, int height, sf::RenderWindow& window)
+{
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			float r = static_cast<float>(width - i) / width * 255;
+			float g = static_cast<float>(j) / height * 255;
+			float b = static_cast<float>(i) / width * 255;
+			sf::Color pixelC = sf::Color(r, g, b);
+			sf::RectangleShape pixel;
+			pixel.setSize(sf::Vector2f(1.f, 1.f));
+			pixel.setPosition(i, j);
+			pixel.setFillColor(pixelC);
+			window.draw(pixel);
+		}
+	}
+}
+
+float map(float x, float in_min, float in_max, float out_min, float out_max)
+{
+	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

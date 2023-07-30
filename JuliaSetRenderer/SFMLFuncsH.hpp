@@ -1,11 +1,13 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 
-sf::Color newColor(float& r, float& g, float& b);
-
-sf::Color newColor(float& r, float& g, float& b, float& a);
-
 void RenderJuliaSet(
-	std::map<std::string, int> params,
+	std::map<std::string, float> params,
 	const std::vector<int>& JuliaSet,
-	sf::Window& window
+	sf::RenderWindow& window
 );
+
+void testRender(int width, int height, sf::RenderWindow& window);
+
+float map(float x, float in_min, float in_max, float out_min, float out_max);

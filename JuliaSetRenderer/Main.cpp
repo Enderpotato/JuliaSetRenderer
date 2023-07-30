@@ -1,13 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
 #include "ComplexH.hpp"
 #include "SFMLFuncsH.hpp"
 
 int windowWidth = 720;
-int windowHeight = 360;
+int windowHeight = 720;
 
 using String = std::string;
 
@@ -34,15 +29,14 @@ int main()
 		window.clear();
 
 
-		std::map<String, int> params;
-		params["testX"] = testX;
-		params["testY"] = testY;
+		std::map<String, float> params;
+		params["testX"] = (float)testX;
+		params["testY"] = (float)testY;
 		params["lenX"] = lenX;
 		params["lenY"] = lenY;
 
 		RenderJuliaSet(params, JuliaSet, window);
-
-
+		//testRender(windowWidth, windowHeight, window);
 		
 		window.display();
 
