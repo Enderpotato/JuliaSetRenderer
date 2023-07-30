@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 struct Complex
 {
@@ -12,9 +11,9 @@ public:
 
 	~Complex();
 
-	Complex operator+(const Complex& other) const;
+	Complex operator+(const Complex &other) const;
 
-	Complex operator*(const Complex& other) const;
+	Complex operator*(const Complex &other) const;
 
 	void print() const;
 
