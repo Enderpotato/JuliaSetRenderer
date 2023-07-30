@@ -9,7 +9,7 @@ using String = std::string;
 int main()
 {
 	int testX = 720;
-	int testY = 360;
+	int testY = 720;
 
 	Complex c(-.79f, .15f);
 

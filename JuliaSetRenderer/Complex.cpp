@@ -52,7 +52,7 @@ std::vector<int> getJuliaSet(const int& width, const int& height, const Complex&
 	{
 		for (int j = 0; j < width; j++)
 		{
-			int maxCount = 5;
+			int maxCount = 30;
 			Complex z = Complex(
 				startX + j * gapSize,
 				startY + i * gapSize
