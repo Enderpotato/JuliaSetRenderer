@@ -23,6 +23,6 @@ public:
 	float getMag() const;
 };
 
-std::vector<int> getJuliaSet(const int& width, const int& height, const Complex& c);
+std::vector<int> getJuliaSet(const int& width, const int& height, const Complex& c, int maxCount);
 
 int outOfRange(Complex z, const Complex& c, const int& maxCount);

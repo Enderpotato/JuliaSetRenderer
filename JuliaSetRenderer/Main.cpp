@@ -1,21 +1,22 @@
 #include "ComplexH.hpp"
 #include "SFMLFuncsH.hpp"
 
-int windowWidth = 720;
-int windowHeight = 720;
+int windowWidth = 1000;
+int windowHeight = 1000;
 
 using String = std::string;
 
 int main()
 {
-	int testX = 720;
-	int testY = 720;
+	int testX = 500;
+	int testY = 500;
 
-	Complex c(-.79f, .15f);
+	Complex c(.28f, 0.008f);
 
 	//std::cout << a.getMag() << std::endl;
+	int maxCount = 100;
 
-	std::vector<int> JuliaSet = getJuliaSet(testX, testY, c);
+	std::vector<int> JuliaSet = getJuliaSet(testX, testY, c, maxCount);
 
 	float lenX = static_cast<float>(windowWidth) / testX;
 	float lenY = static_cast<float>(windowHeight) / testY;
@@ -35,7 +36,7 @@ int main()
 		params["lenX"] = lenX;
 		params["lenY"] = lenY;
 
-		RenderJuliaSet(params, JuliaSet, window);
+		RenderJuliaSet(params, JuliaSet, window, maxCount);
 		//testRender(windowWidth, windowHeight, window);
 		
 		window.display();

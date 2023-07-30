@@ -1,10 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "SFMLFuncsH.hpp"
+#include <iostream>
 
 void RenderJuliaSet(
 	std::map<std::string, float> params,
 	const std::vector<int>& JuliaSet,
-	sf::RenderWindow& window
+	sf::RenderWindow& window,
+	int maxCount
 )
 {
 
@@ -16,13 +18,25 @@ void RenderJuliaSet(
 	{
 		for (int j = 0; j < testX; j++)
 		{
-			int iters = JuliaSet[static_cast<int>(i * testY + j)];
-
-			//std::cout << iters << std::endl;
+			int iterations = JuliaSet[i * testY + j];
 			sf::RectangleShape pixel;
 			pixel.setPosition(j * lenX, i * lenY);
 			pixel.setSize(sf::Vector2f(lenX, lenY));
-			sf::Color pixelColor = (iters == 0) ? sf::Color::Red : sf::Color::Green;
+			sf::Color pixelColor;
+			if (iterations == 0) {
+				//pixelColor = sf::Color(255, 165, 0);
+				pixelColor = sf::Color::Blue;
+			}
+			else
+			{
+				float ratio = (float)iterations / (float)maxCount;
+				//int r = static_cast<int>(iterations / (maxCount) * 255);
+				//int g = static_cast<int>(iterations / (maxCount) * 165);
+				int b = 255 - ratio * 255;
+				//std::cout << iterations / maxCount << std::endl;
+
+				pixelColor = sf::Color(0, 0, b, ratio * 255);
+			}
 			pixel.setFillColor(pixelColor);
 			window.draw(pixel);
 		}

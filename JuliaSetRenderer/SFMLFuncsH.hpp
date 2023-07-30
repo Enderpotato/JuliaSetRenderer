@@ -5,7 +5,8 @@
 void RenderJuliaSet(
 	std::map<std::string, float> params,
 	const std::vector<int>& JuliaSet,
-	sf::RenderWindow& window
+	sf::RenderWindow& window,
+	int maxCount
 );
 
 void testRender(int width, int height, sf::RenderWindow& window);

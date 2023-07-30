@@ -36,7 +36,7 @@ void Complex::print() const
 	std::cout << iPrefix << std::abs(this->im) << "\n";
 }
 
-std::vector<int> getJuliaSet(const int& width, const int& height, const Complex& c)
+std::vector<int> getJuliaSet(const int& width, const int& height, const Complex& c, int maxCount)
 {
 	std::vector<int> JuliaSet;
 
@@ -52,15 +52,12 @@ std::vector<int> getJuliaSet(const int& width, const int& height, const Complex&
 	{
 		for (int j = 0; j < width; j++)
 		{
-			int maxCount = 30;
 			Complex z = Complex(
 				startX + j * gapSize,
 				startY + i * gapSize
 			);
 			//z.print();
 			int iters = outOfRange(z, c, maxCount);
-			if (iters == maxCount)
-				iters = 0;
 
 			//std::cout << iters << std::endl;
 			JuliaSet.push_back(iters);
@@ -83,5 +80,5 @@ int outOfRange(Complex z, const Complex& c, const int& maxCount)
 			return count;
 
 	}
-	return count;
+	return 0;
 }
