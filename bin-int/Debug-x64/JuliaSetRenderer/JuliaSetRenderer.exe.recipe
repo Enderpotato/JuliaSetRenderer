@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\dev\JuliaSetRenderer\bin\Debug - x64\JuliaSetRenderer\JuliaSetRenderer.exe</FullPath>
+      <FullPath>C:\dev\JuliaSetRenderer\bin\Debug-x64\JuliaSetRenderer\JuliaSetRenderer.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

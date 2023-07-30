@@ -17,6 +17,10 @@ public:
 	Complex operator*(const Complex& other) const;
 
 	void print() const;
+
+	float getMag() const;
 };
 
 std::vector<int> getJuliaSet(const int& width, const int& height, const Complex& c);
+
+int outOfRange(Complex z, const Complex& c, const int& maxCount);

@@ -24,6 +24,11 @@ Complex Complex::operator*(const Complex& other) const
 	return Complex(real, imag);
 }
 
+float Complex::getMag() const
+{
+	return std::sqrt(this->re * this->re + this->im * this->im);
+}
+
 void Complex::print() const
 {
 	std::cout << this->re;
@@ -42,25 +47,41 @@ std::vector<int> getJuliaSet(const int& width, const int& height, const Complex&
 	float startX = static_cast<float>(-gapSize) * width / 2;
 	float startY = static_cast<float>(-gapSize) * height / 2;
 
-	std::cout << startX << std::endl;
-	std::cout << startY << std::endl;
 
 	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j < width; j++)
 		{
-			int count = 1;
+			int maxCount = 5;
 			Complex z = Complex(
 				startX + j * gapSize,
 				startY + i * gapSize
 			);
-			z.print();
+			//z.print();
+			int iters = outOfRange(z, c, maxCount);
+			if (iters == maxCount)
+				iters = 0;
 
+			//std::cout << iters << std::endl;
+			JuliaSet.push_back(iters);
 		}
 	}
 
-	std::cout << minLen << "\n";
-	std::cout << gapSize << "\n";
-
 	return JuliaSet;
+}
+
+int outOfRange(Complex z, const Complex& c, const int& maxCount)
+{
+	int count = 1;
+	for (count; count < maxCount; count++)
+	{
+		// z = z^2 + c
+		z = z * z + c;
+
+		// z is in bounds as long as |z| < 2
+		if (z.getMag() >= 2.f)
+			return count;
+
+	}
+	return count;
 }
