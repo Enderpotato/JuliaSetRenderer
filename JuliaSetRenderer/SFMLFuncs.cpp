@@ -10,29 +10,29 @@ void RenderJuliaSet(
 )
 {
 
-	float testY = params["testY"];
-	float testX = params["testX"];
+	float renderX = params["renderX"];
+	float renderY = params["renderY"];
 	float lenX = params["lenX"];
 	float lenY = params["lenY"];
-	for (int i = 0; i < testY; i++)
+	for (int i = 0; i < renderY; i++)
 	{
-		for (int j = 0; j < testX; j++)
+		for (int j = 0; j < renderX; j++)
 		{
-			int iterations = JuliaSet[i * testY + j];
+			int iterations = JuliaSet[i * renderY + j];
 			sf::RectangleShape pixel;
 			pixel.setPosition(j * lenX, i * lenY);
 			pixel.setSize(sf::Vector2f(lenX, lenY));
 			sf::Color pixelColor;
 			if (iterations == 0) {
-				//pixelColor = sf::Color(255, 165, 0);
-				pixelColor = sf::Color::Blue;
+				pixelColor = sf::Color(255, 165, 0);
+				//pixelColor = sf::Color::Blue;
 			}
 			else
 			{
 				float ratio = (float)iterations / (float)maxCount;
-				//int r = static_cast<int>(iterations / (maxCount) * 255);
-				//int g = static_cast<int>(iterations / (maxCount) * 165);
-				int b = 255 - ratio * 255;
+				float r = ratio * 255;
+				float g = ratio * 165;
+				float b = 255 - ratio * 255;
 				//std::cout << iterations / maxCount << std::endl;
 
 				pixelColor = sf::Color(0, 0, b, ratio * 255);

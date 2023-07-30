@@ -8,18 +8,18 @@ using String = std::string;
 
 int main()
 {
-	int testX = 500;
-	int testY = 500;
+	int renderX = 1500;
+	int renderY = 1500;
 
 	Complex c(.28f, 0.008f);
 
 	//std::cout << a.getMag() << std::endl;
 	int maxCount = 100;
 
-	std::vector<int> JuliaSet = getJuliaSet(testX, testY, c, maxCount);
+	std::vector<int> JuliaSet = getJuliaSet(renderX, renderY, c, maxCount);
 
-	float lenX = static_cast<float>(windowWidth) / testX;
-	float lenY = static_cast<float>(windowHeight) / testY;
+	float lenX = static_cast<float>(windowWidth) / renderX;
+	float lenY = static_cast<float>(windowHeight) / renderY;
 
 	std::cout << lenX << " " << lenY << "\n";
 
@@ -31,8 +31,8 @@ int main()
 
 
 		std::map<String, float> params;
-		params["testX"] = (float)testX;
-		params["testY"] = (float)testY;
+		params["renderX"] = (float)renderX;
+		params["renderY"] = (float)renderY;
 		params["lenX"] = lenX;
 		params["lenY"] = lenY;
 
