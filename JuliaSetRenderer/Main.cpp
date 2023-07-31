@@ -1,5 +1,6 @@
 #include "ComplexH.hpp"
 #include "SFMLFuncsH.hpp"
+#include <math.h>
 
 int windowWidth = 1000;
 int windowHeight = 1000;
@@ -10,8 +11,8 @@ int main()
 {
 	int renderX = 1500;
 	int renderY = 1500;
-
-	Complex c(.28f, 0.008f);
+	
+	Complex c(-0.05f, .82f);
 
 	//std::cout << a.getMag() << std::endl;
 	int maxCount = 100;
@@ -21,9 +22,10 @@ int main()
 	float lenX = static_cast<float>(windowWidth) / renderX;
 	float lenY = static_cast<float>(windowHeight) / renderY;
 
-	std::cout << lenX << " " << lenY << "\n";
 
 	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "window");
+
+	window.setFramerateLimit(20);
 
 	while (window.isOpen())
 	{
@@ -38,7 +40,7 @@ int main()
 
 		RenderJuliaSet(params, JuliaSet, window, maxCount);
 		//testRender(windowWidth, windowHeight, window);
-		
+		//std::cout << sf::Mouse::getPosition(window).x << std::endl;
 		window.display();
 
 

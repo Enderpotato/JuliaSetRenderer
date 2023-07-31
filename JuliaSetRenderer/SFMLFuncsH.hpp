@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+sf::Color HSVColor(const float& h, const float& s, const float& l);
+
 void RenderJuliaSet(
 	std::map<std::string, float> params,
 	const std::vector<int>& JuliaSet,
